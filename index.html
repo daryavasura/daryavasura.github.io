@@ -151,6 +151,14 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .stage .cap { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }
 
 /* Work */
+.quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+.q { margin: 0; background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: 28px; display: grid; gap: 18px; align-content: space-between; min-width: 0; }
+.q blockquote { margin: 0; font-size: 1.05rem; line-height: 1.55; }
+.q figcaption { display: grid; gap: 2px; }
+.q figcaption b { font-family: var(--font-display); font-weight: 600; }
+.q figcaption span { color: var(--muted); font-size: 14px; }
+.cap2 { margin-top: 16px; color: var(--muted); font-size: 14px; }
+@media (max-width: 700px) { .quotes { grid-template-columns: 1fr; } }
 .brief { margin-top: 36px; background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: clamp(8px, 2vw, 16px) clamp(20px, 3.5vw, 40px); }
 .brief-row { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(16px, 4vw, 48px); padding-block: 22px; border-top: 1px solid var(--line); }
 .brief-row:first-child { border-top: 0; }
@@ -327,10 +335,25 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       <p class="lead" style="margin-top:14px" data-i18n="work_p">Case studies with numbers will be added here as results come in.</p>
       <div class="brief">
         <div class="brief-row"><h3 data-i18n="e1h">8+ years on the agency side</h3><p data-i18n="e1p">IKEA, JTI, Playtika, International Swimming League and others: projects from brief to delivery, creative production, account management.</p></div>
-        <div class="brief-row"><h3 data-i18n="e2h">In-house marketing, beauty studios in 5 EU countries</h3><p data-i18n="e2p">Website built with a developer, paid campaigns on Google Ads, Meta and TikTok with a budget that grew to about $17,000 a month, lead tracking with sales, a marketplace launch in 3 countries. I worked with ad specialists and did not buy ads myself.</p></div>
-        <div class="brief-row"><h3 data-i18n="e3h">Explorio app, co-founder</h3><p data-i18n="e3p">A map app built on data verified by people. About 20 customer interviews, competitor research, unit economics, monetization forecasts and an MVP tested by 13 users. We stopped the project when the data showed people would not verify places themselves.</p></div>
-        <div class="brief-row"><h3 data-i18n="e4h">Subscription app pilot, name withheld</h3><p data-i18n="e4p">Competitor analysis of onboarding, paywall and core product, and feedback to the founder. Results will be added after the updated version launches.</p></div>
+        <div class="brief-row"><h3 data-i18n="e2h">In-house marketing, beauty studios in 5 EU countries</h3><p data-i18n="e2p">Website built with a developer, paid campaigns on Google Ads, Meta and TikTok with a budget that grew to about $17,000 a month, lead tracking with sales, a marketplace launch in 3 countries.</p></div>
+        <div class="brief-row"><h3 data-i18n="e3h">Explorio app, co-founder</h3><p data-i18n="e3p">A map app built on data verified by people. 20 customer interviews, competitor research, unit economics, monetization forecasts and an MVP tested by 13 users. We stopped the project when the data showed people would not verify places themselves.</p></div>
+        <div class="brief-row"><h3 data-i18n="e5h">How I work</h3><p data-i18n="e5p">Open communication with the client, always in sync. I build processes from scratch and set up project rails, and I can assemble a team, so the project keeps moving along the rails.</p></div>
+        <div class="brief-row"><h3 data-i18n="e4h">Subscription app pilot, name withheld</h3><p data-i18n="e4p">Competitor analysis of onboarding, paywall and core product, and feedback to the founder. The work is not finished. Next come a strategy for attracting an audience and content development. The product has not launched yet, so after launch I will put the content strategy and the strategy for bringing users in through distribution channels into practice. The numbers will be published then.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="people">
+    <div class="wrap">
+      <p class="label" data-i18n="rv_l">Recommendations</p>
+      <h2 data-i18n="rv_h">What people I worked with say</h2>
+      <div class="quotes">
+        <figure class="q"><blockquote>Daria is a highly responsible and results-driven project manager who consistently brings projects to completion and delivers maximum impact. She bases her decisions on data and works exceptionally well within a team.</blockquote><figcaption><b>Dmytro Demydov</b><span>Chief Marketing Officer at SMALL</span></figcaption></figure>
+        <figure class="q"><blockquote>У неё очень чёткий и структурный подход к коммуникации: все задачи ставятся понятно, с конкретными KPI, бюджетами и сроками.</blockquote><figcaption><b>Stanislau Kavalski</b><span>AI-native Creative Producer</span></figcaption></figure>
+        <figure class="q"><blockquote>Daria would always provide a well-defined brief, which made my job much easier.</blockquote><figcaption><b>Alina Holubeva</b><span>Content manager, SMM, photographer, videographer</span></figcaption></figure>
+        <figure class="q"><blockquote>Very experienced, professional and someone you can trust. Attentive to detail, sensitive to what the client needs.</blockquote><figcaption><b>Boris Afanasev</b><span>Art Director, Director of Photography</span></figcaption></figure>
+      </div>
+      <p class="cap2" data-i18n="rv_n">From recommendations on LinkedIn, quoted in the original language.</p>
     </div>
   </section>
 
@@ -342,7 +365,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       <div class="offers">
         <div class="offer"><span class="when" data-i18n="o1w">About a week</span><h3 data-i18n="o1h">Onboarding and paywall teardown</h3><p data-i18n="o1p">A written report with 5 to 10 prioritised changes, hypotheses to test, the metrics to watch, and a 30 to 45 minute walkthrough.</p></div>
         <div class="offer"><span class="when" data-i18n="o2w">Two weeks</span><h3 data-i18n="o2h">Launch plan without an ad budget</h3><p data-i18n="o2p">Channels for your stage, an organic plan, unit economics from benchmarks, a content calendar and metrics. Monthly follow-through if you want it.</p></div>
-        <div class="offer"><span class="when" data-i18n="o3w">In testing</span><h3 data-i18n="o3h">Content system</h3><p data-i18n="o3p">A pipeline of agents and services that prepares posts and creatives in your voice. I check the quality, you publish. Being tested on my own pilot.</p></div>
+        <div class="offer"><span class="when" data-i18n="o3w">Ongoing</span><h3 data-i18n="o3h">Content system</h3><p data-i18n="o3p">A pipeline of agents and services that prepares posts and creatives in your voice. You choose who publishes: you, or I do.</p></div>
       </div>
     </div>
   </section>
@@ -355,6 +378,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
         <div class="about-text">
         <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing.</p>
         <p data-i18n="ab_p2">I like numbers and plain words, and I will tell you when something is not working.</p>
+        <p data-i18n="ab_p4">I like setting up workflows. I keep processes clean and transparent, communicate openly with clients, and stay in sync to get the best results.</p>
         <p class="muted" data-i18n="ab_p3">I work in English and Russian.</p>
         </div>
       </div>
@@ -364,7 +388,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
   <section id="contact" style="padding-top:0">
     <div class="wrap">
       <div class="contact">
-        <h2 data-i18n="ct_h">Send me your product</h2>
+        <h2 data-i18n="ct_h">If you are interested, write to me and we will talk about the future of your product.</h2>
         <a class="btn" href="https://www.linkedin.com/in/darya-vasiura-478671194/" target="_blank" rel="noopener" data-i18n="ct_b">Message me on LinkedIn</a>
       </div>
     </div>
@@ -426,9 +450,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       ph_cap: "Примеры из реальных проектов. Названия, ссылки, цены и люди скрыты, а текст размыт специально.",
       ph_tag: "Заглушка",
       e1h: "8+ лет в агентствах", e1p: "IKEA, JTI, Playtika, International Swimming League и другие: проекты от брифа до сдачи, креативное производство, ведение клиентов.",
-      e2h: "Маркетинг внутри компании, студии красоты в 5 странах ЕС", e2p: "Сайт с разработчиком, платные кампании в Google Ads, Meta и TikTok с бюджетом, выросшим до около $17 000 в месяц, учёт лидов вместе с продажами, запуск на маркетплейсе в 3 странах. Я работала со специалистами по рекламе и сама рекламу не закупала.",
-      e3h: "Приложение Explorio, сооснователь", e3p: "Карта на данных, проверенных людьми. Около 20 интервью с клиентами, анализ конкурентов, юнит-экономика, прогнозы монетизации и MVP, который проверили 13 пользователей. Мы остановили проект, когда данные показали, что люди сами проверять места не готовы.",
-      e4h: "Пилот приложения с подпиской, название скрыто", e4p: "Анализ онбординга, пейволла и ядра продукта у конкурентов и обратная связь основателю. Результаты добавлю после запуска обновлённой версии.",
+      e2h: "Маркетинг внутри компании, студии красоты в 5 странах ЕС", e2p: "Сайт с разработчиком, платные кампании в Google Ads, Meta и TikTok с бюджетом, выросшим до около $17 000 в месяц, учёт лидов вместе с продажами, запуск на маркетплейсе в 3 странах.",
+      e3h: "Приложение Explorio, сооснователь", e3p: "Карта на данных, проверенных людьми. 20 интервью с клиентами, анализ конкурентов, юнит-экономика, прогнозы монетизации и MVP, который проверили 13 пользователей. Мы остановили проект, когда данные показали, что люди сами проверять места не готовы.",
+      rv_l: "Рекомендации", rv_h: "Что говорят те, с кем я работала", rv_n: "Из рекомендаций в LinkedIn, цитаты на языке оригинала.",
+      e5h: "Как я работаю", e5p: "Открытая коммуникация с клиентом, всегда на синхроне. Я выстраиваю процессы с нуля и ставлю проектные рельсы, могу собрать команду, и дальше проект движется по проложенным рельсам.",
+      e4h: "Пилот приложения с подпиской, название скрыто", e4p: "Анализ онбординга, пейволла и ядра продукта у конкурентов и обратная связь основателю. Работа не закончена. Дальше стратегия привлечения аудитории и разработка контента. Продукт ещё не запущен, поэтому после запуска я внедрю контентную стратегию и стратегию привлечения пользователей через каналы дистрибуции. Тогда же будут опубликованы цифры.",
       work_l: "Опыт", work_h: "Опыт коротко",
       work_p: "Кейсы с цифрами появятся здесь по мере результатов.",
       c1h: "Приложение Explorio", c1m: "Акселератор Imaguru Startup Hub, 2026. Нетехнический сооснователь: стратегия, продукт, маркетинг и исследование клиентов. Разработка на сооснователе.",
@@ -451,13 +477,14 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       o1p: "Письменный отчёт с 5-10 изменениями по приоритету, гипотезами для проверки, метриками и созвоном на 30-45 минут.",
       o2w: "Две недели", o2h: "План запуска без рекламного бюджета",
       o2p: "Каналы под вашу стадию, план органики, юнит-экономика по бенчмаркам, контент-календарь и метрики. Ежемесячное сопровождение, если нужно.",
-      o3w: "На проверке", o3h: "Система контента",
-      o3p: "Конвейер из агентов и сервисов, который готовит посты и креативы в вашем голосе. Качество проверяю я, публикуете вы. Проверяю на собственном пилоте.",
+      o3w: "Постоянно", o3h: "Система контента",
+      o3p: "Конвейер из агентов и сервисов, который готовит посты и креативы в вашем голосе. Публикуете вы или я, как вам удобнее.",
       ab_l: "Обо мне", ab_h: "Привет, я Дарья",
       ab_p1: "Я живу в Варшаве. Больше 8 лет работала в агентствах, вела проекты от брифа до сдачи для международных брендов, потом ушла в маркетинг внутри компании.",
       ab_p2: "Я люблю цифры и простые слова, и скажу прямо, если что-то не работает.",
+      ab_p4: "Я люблю настраивать рабочие процессы. Делаю процессы чистыми и прозрачными, веду открытую коммуникацию с клиентом и всегда на синхроне, чтобы достичь лучших результатов.",
       ab_p3: "Рабочие языки: английский и русский.",
-      ct_h: "Отправьте мне продукт",
+      ct_h: "Если вам интересно, напишите мне, и мы поговорим о будущем вашего продукта.",
       ct_p: "Напишите мне в LinkedIn: ссылку на приложение, что вас в нём беспокоит и ваши цифры, если они есть. Я отвечу, с чего бы я начала.",
       ct_b: "Написать мне в LinkedIn", ct_c: "Скопировать ссылку",
       foot: "Варшава, Польша"
