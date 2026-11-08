@@ -103,6 +103,20 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .steps b { font-family: var(--font-display); font-weight: 600; display: block; }
 .steps span { color: var(--muted); font-size: 16px; }
 .stage { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
+.sheets { display: grid; gap: 12px; }
+.sheet { background: var(--bg); border: 1px solid var(--edge); border-radius: var(--r-md); padding: 14px 16px; display: grid; gap: 10px; }
+.sheet small { font-size: 13px; font-weight: 600; color: var(--muted); }
+.sh-head { display: flex; gap: 6px; }
+.sh-head i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.sh-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.sh-grid b { height: 22px; border-radius: 8px; background: var(--tint); }
+.sh-flow { display: flex; align-items: center; gap: 6px; }
+.sh-flow b { width: 38px; height: 28px; border-radius: 8px; background: var(--tint); }
+.sh-flow u { flex: 1; height: 2px; background: var(--edge); }
+.sh-note { height: 22px; width: 60%; border-radius: 8px; border: 1px dashed var(--edge); }
+.sh-list { display: grid; gap: 6px; }
+.sh-list b { height: 14px; border-radius: 6px; background: var(--tint); }
+.sh-list b:nth-child(2) { width: 85%; } .sh-list b:nth-child(3) { width: 70%; } .sh-list b:nth-child(4) { width: 55%; }
 .phones { display: flex; justify-content: center; gap: clamp(14px, 3vw, 28px); flex-wrap: wrap; }
 .phone-wrap { display: grid; gap: 10px; justify-items: center; }
 .phone { width: 150px; height: 290px; border-radius: 30px; border: 1px solid var(--line); background: var(--bg); padding: 16px 14px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; }
@@ -273,17 +287,12 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
           <li><div><b data-i18n="s4h">Measure</b><span data-i18n="s4p">We choose the metrics before launch, so the result is visible.</span></div></li>
         </ol>
         <div class="stage">
-          <div class="phones">
-            <div class="phone-wrap">
-              <div class="phone"><div class="appname"></div><div class="hero-block"></div><div class="lines"><i></i><i></i><i></i></div><div class="cta"></div></div>
-              <small data-i18n="ph1">Current</small>
-            </div>
-            <div class="phone-wrap">
-              <div class="phone alt"><div class="appname"></div><div class="hero-block"></div><div class="lines"><i></i><i></i><i></i></div><div class="cta"></div></div>
-              <small data-i18n="ph2">Proposed</small>
-            </div>
+          <div class="sheets">
+            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-grid"><b></b><b></b><b></b><b></b><b></b><b></b></div><small data-i18n="ph1">Competitor comparison</small></div>
+            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-flow"><b></b><u></u><b></b><u></u><b></b></div><div class="sh-note"></div><small data-i18n="ph2">Onboarding map with notes</small></div>
+            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-list"><b></b><b></b><b></b><b></b></div><small data-i18n="ph3">Changes by priority</small></div>
           </div>
-          <p class="cap" data-i18n="ph_cap">Example layout. Real screens from a past project, with the app name hidden, go here.</p>
+          <p class="cap" data-i18n="ph_cap">Layout of the working files. Real fragments of my analysis, with names hidden, go here.</p>
           <p class="cap"><span class="tag" data-i18n="ph_tag">Placeholder</span></p>
         </div>
       </div>
@@ -406,8 +415,8 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       s2h: "Поиск", s2p: "Нахожу, где пользователи уходят и что непонятно.",
       s3h: "Решение", s3p: "Вы получаете 5-10 изменений по важности, у каждого своя причина.",
       s4h: "Измерение", s4p: "Метрики выбираем до запуска, чтобы результат был виден.",
-      ph1: "Сейчас", ph2: "Предложение",
-      ph_cap: "Пример раскладки. Здесь будут настоящие экраны из прошлого проекта, с скрытым названием приложения.",
+      ph1: "Сравнение конкурентов", ph2: "Карта онбординга с пометками", ph3: "Изменения по приоритету",
+      ph_cap: "Схема рабочих файлов. Здесь будут настоящие фрагменты моего анализа со скрытыми названиями.",
       ph_tag: "Заглушка",
       work_l: "Работы", work_h: "Что сделано",
       work_p: "Гипотеза, проверка, результат. Если результата пока нет, так и написано.",
