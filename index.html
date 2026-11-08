@@ -103,6 +103,11 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .steps b { font-family: var(--font-display); font-weight: 600; display: block; }
 .steps span { color: var(--muted); font-size: 16px; }
 .stage { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tab { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--edge); background: var(--bg); color: var(--ink); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.panel img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; object-position: top; border-radius: var(--r-md); border: 1px solid var(--edge); background: var(--bg); }
+.panel .what { margin-top: 14px; font-size: 15px; color: var(--muted); }
 .sheets { display: grid; gap: 12px; }
 .sheet { background: var(--bg); border: 1px solid var(--edge); border-radius: var(--r-md); padding: 14px 16px; display: grid; gap: 10px; }
 .sheet small { font-size: 13px; font-weight: 600; color: var(--muted); }
@@ -287,13 +292,17 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
           <li><div><b data-i18n="s4h">Measure</b><span data-i18n="s4p">We choose the metrics before launch, so the result is visible.</span></div></li>
         </ol>
         <div class="stage">
-          <div class="sheets">
-            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-grid"><b></b><b></b><b></b><b></b><b></b><b></b></div><small data-i18n="ph1">Competitor comparison</small></div>
-            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-flow"><b></b><u></u><b></b><u></u><b></b></div><div class="sh-note"></div><small data-i18n="ph2">Onboarding map with notes</small></div>
-            <div class="sheet"><div class="sh-head"><i></i><i></i><i></i></div><div class="sh-list"><b></b><b></b><b></b><b></b></div><small data-i18n="ph3">Changes by priority</small></div>
+          <div class="tabs" role="tablist" aria-label="Work samples">
+            <button type="button" role="tab" class="tab" data-t="0" aria-selected="true" data-i18n="t1">Onboarding</button>
+            <button type="button" role="tab" class="tab" data-t="1" aria-selected="false" data-i18n="t2">Paywall</button>
+            <button type="button" role="tab" class="tab" data-t="2" aria-selected="false" data-i18n="t3">Icon</button>
+            <button type="button" role="tab" class="tab" data-t="3" aria-selected="false" data-i18n="t4">Creative brief</button>
           </div>
-          <p class="cap" data-i18n="ph_cap">Layout of the working files. Real fragments of my analysis, with names hidden, go here.</p>
-          <p class="cap"><span class="tag" data-i18n="ph_tag">Placeholder</span></p>
+          <div class="panel" data-p="0"><img src="w1_onboarding.jpg" width="585" height="430" alt="Onboarding screens laid out as one flow with notes" loading="lazy"><p class="what" data-i18n="p1">I lay every screen out as one flow, add notes, and mark where the user is asked for something before they have seen any value.</p></div>
+          <div class="panel" data-p="1" hidden><img src="w3_paywall.jpg" width="950" height="1230" alt="Competitor paywall next to notes and an example paywall" loading="lazy"><p class="what" data-i18n="p2">I put competitors' paywalls next to notes on plans, price anchoring and trials, then sketch an example paywall.</p></div>
+          <div class="panel" data-p="2" hidden><img src="w2_icon.jpg" width="715" height="605" alt="App icon options on a home screen, one approved, one rejected" loading="lazy"><p class="what" data-i18n="p3">I compare icon options on a real home screen, in light and dark, and mark the one I recommend, with reasons.</p></div>
+          <div class="panel" data-p="3" hidden><img src="w4_brief.jpg" width="465" height="965" alt="A creative brief with audience, pain, hypothesis, hook and call to action" loading="lazy"><p class="what" data-i18n="p4">I turn the research into a brief a creator can shoot: audience, pain, hypothesis, hook, body, call to action, and why it should work.</p></div>
+          <p class="cap" data-i18n="ph_cap">Samples from real projects. Names, links, prices and people are hidden, and the text is blurred on purpose.</p>
         </div>
       </div>
     </div>
@@ -415,8 +424,12 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       s2h: "Поиск", s2p: "Нахожу, где пользователи уходят и что непонятно.",
       s3h: "Решение", s3p: "Вы получаете 5-10 изменений по важности, у каждого своя причина.",
       s4h: "Измерение", s4p: "Метрики выбираем до запуска, чтобы результат был виден.",
-      ph1: "Сравнение конкурентов", ph2: "Карта онбординга с пометками", ph3: "Изменения по приоритету",
-      ph_cap: "Схема рабочих файлов. Здесь будут настоящие фрагменты моего анализа со скрытыми названиями.",
+      t1: "Онбординг", t2: "Пейволл", t3: "Иконка", t4: "Креативный бриф",
+      p1: "Я раскладываю все экраны в один поток, добавляю пометки и отмечаю, где от пользователя просят что-то раньше, чем он увидел пользу.",
+      p2: "Я ставлю пейволлы конкурентов рядом с заметками о тарифах, якорении цены и триале и набрасываю пример пейволла.",
+      p3: "Я сравниваю варианты иконки на настоящем домашнем экране, в светлой и тёмной теме, и отмечаю рекомендуемый вариант с причинами.",
+      p4: "Я превращаю исследование в бриф, который креатор может снимать: аудитория, боль, гипотеза, хук, тело, призыв и почему это должно сработать.",
+      ph_cap: "Примеры из реальных проектов. Названия, ссылки, цены и люди скрыты, а текст размыт специально.",
       ph_tag: "Заглушка",
       work_l: "Работы", work_h: "Что сделано",
       work_p: "Гипотеза, проверка, результат. Если результата пока нет, так и написано.",
@@ -488,6 +501,15 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       var id = a.getAttribute("data-scroll");
       var el = id === "top" ? document.body : document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  var tabs = document.querySelectorAll(".tab"), panels = document.querySelectorAll(".panel");
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      var i = t.getAttribute("data-t");
+      tabs.forEach(function (x) { x.setAttribute("aria-selected", String(x === t)); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute("data-p") !== i; });
     });
   });
 
