@@ -141,6 +141,7 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 
 /* About + contact */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 80px); }
+.portrait { display: block; width: 100%; max-width: 380px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-top: 28px; border-radius: var(--r-lg); border: 1px solid var(--edge); }
 .about p + p { margin-top: 14px; }
 .about .muted { color: var(--muted); }
 .contact { background: var(--accent); color: var(--accent-ink); border-radius: var(--r-lg); padding: clamp(28px, 5vw, 64px); display: grid; gap: 20px; }
@@ -335,6 +336,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       <div>
         <p class="label" data-i18n="ab_l">About</p>
         <h2 style="margin-top:14px" data-i18n="ab_h">Hi, I'm Darya</h2>
+        <img class="portrait" src="photo.jpg" width="960" height="1200" alt="Darya in the mountains" loading="lazy">
       </div>
       <div>
         <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing.</p>
