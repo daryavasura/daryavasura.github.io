@@ -75,6 +75,9 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .proof li { font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: var(--tint); color: var(--tint-ink); }
 
 .funnel { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); display: grid; gap: 10px; }
+.fh { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 15px; font-weight: 600; padding: 10px 18px; border-radius: 999px; background: var(--tint); color: var(--tint-ink); border: 1px solid var(--edge); }
 .funnel .row { height: 46px; border-radius: 999px; background: var(--tint); color: var(--tint-ink); display: flex; align-items: center; padding-inline: 20px; font-size: 15px; font-weight: 600; min-width: 0; }
 .funnel .cap { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
@@ -89,6 +92,16 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 
 /* Why a person */
 .split { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 6vw, 80px); align-items: start; }
+.vs { margin-top: 36px; background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-lg); padding: clamp(18px, 3vw, 32px); display: grid; gap: 4px; }
+.vs-head, .vs-row { display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center; gap: 12px; }
+.vs-head span { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; }
+.vs-head span:last-child { color: var(--accent); }
+.vs-row { padding-block: 14px; border-top: 1px solid var(--line); }
+.vs-row p { font-size: clamp(1rem, 2vw, 1.25rem); }
+.vs-row p:first-child { color: var(--muted); }
+.vs-row p:last-child { font-family: var(--font-display); font-weight: 600; }
+.vs-row i { font-style: normal; font-size: 22px; color: var(--accent); text-align: center; }
+@media (max-width: 600px) { .vs-head, .vs-row { grid-template-columns: 1fr 24px 1fr; gap: 8px; } }
 .points { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
 .points li { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r-md); padding: 20px 24px; }
 .points b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
@@ -216,27 +229,19 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="label" data-i18n="kicker">Darya Vasiura, Warsaw</p>
-        <h1 data-i18n="h1">Hands-on marketing for B2C apps</h1>
+        <h1 data-i18n="h1" style="margin-top:0">Hands-on marketing for B2C apps</h1>
         <p class="sub" data-i18n="sub">I take apart your onboarding, paywall and numbers, decide what to change, and stay through the launch.</p>
-        <p class="who" data-i18n="who">For solo founders and small teams building simple consumer apps.</p>
+        <p class="who" data-i18n="who">For solo founders and small teams building consumer apps.</p>
         <div class="actions">
           <a class="btn primary" href="https://www.linkedin.com/in/darya-vasiura-478671194/" target="_blank" rel="noopener" data-i18n="cta1">Send me your app</a>
           <a class="btn ghost" href="#how" data-scroll="how" data-i18n="cta2">See how it works</a>
         </div>
-        <ul class="proof">
-          <li data-i18n="proof1">About 20 user interviews</li>
-          <li data-i18n="proof2">13 testers on a real MVP</li>
-          <li data-i18n="proof3">One idea stopped on the data</li>
-        </ul>
       </div>
       <div class="funnel" aria-label="Funnel">
-        <div class="row" data-i18n="f1">Acquire</div>
-        <div class="row" data-i18n="f2">Onboard</div>
-        <div class="row" data-i18n="f3">Activate</div>
-        <div class="row" data-i18n="f4">Pay</div>
-        <div class="row" data-i18n="f5">Retain</div>
-        <p class="cap" data-i18n="fcap">Where I look: every step between install and payment.</p>
+        <h2 class="fh" data-i18n="fcap">Where I look: every step between install and payment</h2>
+        <ul class="chips">
+          <li data-i18n="f1">Acquire</li><li data-i18n="f2">Onboard</li><li data-i18n="f3">Activate</li><li data-i18n="f4">Pay</li><li data-i18n="f5">Retain</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -255,28 +260,29 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
         <div class="item"><h3 data-i18n="i6h">After launch</h3><p data-i18n="i6p">Which channels to try at your stage, and what to measure next.</p></div>
       </div>
       <h3 class="grp" data-i18n="g2">Launch work</h3>
-      <div class="grid3 four">
+      <div class="grid3">
         <div class="item"><h3 data-i18n="i7h">Content for your app</h3><p data-i18n="i7p">Posts, creatives and store visuals in your voice.</p></div>
         <div class="item"><h3 data-i18n="i8h">Localization</h3><p data-i18n="i8p">Your app and content adapted to the languages you need.</p></div>
         <div class="item"><h3 data-i18n="i9h">Publishing</h3><p data-i18n="i9p">Posting, scheduling and store listing updates.</p></div>
         <div class="item"><h3 data-i18n="i10h">Ad campaigns</h3><p data-i18n="i10p">Setting up and running paid campaigns, with a clear test budget.</p></div>
+        <div class="item"><h3 data-i18n="i11h">Results analysis</h3><p data-i18n="i11p">What worked, what did not, and why, from your real numbers.</p></div>
+        <div class="item"><h3 data-i18n="i12h">Growth forecasts</h3><p data-i18n="i12p">New forecasts from the results: how to grow the product, get found online and acquire users more efficiently.</p></div>
       </div>
     </div>
   </section>
 
   <section id="why">
-    <div class="wrap split">
-      <div>
-        <p class="label" data-i18n="why_l">Why work with me</p>
-        <h2 data-i18n="why_h">Why a person, not just a prompt</h2>
-        <p class="lead" style="margin-top:18px" data-i18n="why_p">AI gives a decent generic answer. I work on your actual app and your actual numbers, talk to real users, make the call, and stay for what happens after.</p>
-        <p class="note" data-i18n="why_n">I use AI every day to research large volumes of information, compare data and run analysis. I make the decisions, and I talk them through with you.</p>
+    <div class="wrap">
+      <p class="label" data-i18n="why_l">Why work with me</p>
+      <h2 data-i18n="why_h">Why a person, not just a prompt</h2>
+      <p class="lead" style="margin-top:18px" data-i18n="why_p">AI gives a decent generic answer. I work on your actual app and your actual numbers, talk to real users, make the call, and stay for what happens after.</p>
+      <div class="vs">
+        <div class="vs-head"><span data-i18n="vs_a">A prompt</span><span></span><span data-i18n="vs_b">Me</span></div>
+        <div class="vs-row"><p data-i18n="vs1a">Advice for an average app</p><i aria-hidden="true">→</i><p data-i18n="vs1b">Your screens, your data, your users</p></div>
+        <div class="vs-row"><p data-i18n="vs2a">A list of 30 ideas</p><i aria-hidden="true">→</i><p data-i18n="vs2b">Priorities, with a reason for each</p></div>
+        <div class="vs-row"><p data-i18n="vs3a">One answer, then silence</p><i aria-hidden="true">→</i><p data-i18n="vs3b">Launch, first numbers, next steps</p></div>
       </div>
-      <ul class="points">
-        <li><b data-i18n="w1h">Your product, not a template</b><span data-i18n="w1p">I use your screens, your data and your users.</span></li>
-        <li><b data-i18n="w2h">A decision, not a list</b><span data-i18n="w2p">You get priorities, and a reason for each one.</span></li>
-        <li><b data-i18n="w3h">Follow-through</b><span data-i18n="w3p">I am there for the launch and for the first numbers.</span></li>
-      </ul>
+      <p class="note" data-i18n="why_n">I use AI every day to research large volumes of information, compare data and run analysis. I make the decisions, and I talk them through with you.</p>
     </div>
   </section>
 
@@ -287,7 +293,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       <div class="demo">
         <ol class="steps">
           <li><div><b data-i18n="s1h">Benchmark</b><span data-i18n="s1p">I put your app next to 5 to 10 competitors.</span></div></li>
-          <li><div><b data-i18n="s2h">Find</b><span data-i18n="s2p">I find where users drop and what is unclear.</span></div></li>
+          <li><div><b data-i18n="s2h">Research</b><span data-i18n="s2p">I research where users drop and what is unclear.</span></div></li>
           <li><div><b data-i18n="s3h">Decide</b><span data-i18n="s3p">You get 5 to 10 changes ordered by impact, each with a reason.</span></div></li>
           <li><div><b data-i18n="s4h">Measure</b><span data-i18n="s4p">We choose the metrics before launch, so the result is visible.</span></div></li>
         </ol>
@@ -396,11 +402,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       kicker: "Дарья Васюра, Варшава",
       h1: "Маркетинг для B2C-приложений, руками",
       sub: "Я разбираю онбординг, paywall и цифры вашего приложения, решаю, что менять, и остаюсь с вами до запуска.",
-      who: "Для соло-фаундеров и небольших команд, которые делают простые потребительские приложения.",
+      who: "Для соло-фаундеров и небольших команд, которые делают потребительские приложения.",
       cta1: "Отправить приложение", cta2: "Как это работает",
       proof1: "Около 20 интервью с пользователями", proof2: "13 тестировщиков на настоящем MVP", proof3: "Одна идея остановлена по данным",
       f1: "Привлечение", f2: "Онбординг", f3: "Активация", f4: "Оплата", f5: "Удержание",
-      fcap: "Куда я смотрю: на каждый шаг между установкой и оплатой.",
+      fcap: "Куда я смотрю: на каждый шаг между установкой и оплатой",
       look_l: "Чем я занимаюсь", look_h: "Что я разбираю в вашем приложении",
       i1h: "Конкуренты", i1p: "5-10 приложений вашей категории рядом: что они спрашивают, показывают и берут за доступ.",
       i2h: "Онбординг", i2p: "Каждый экран от первого запуска до первой пользы и места, где люди уходят.",
@@ -408,6 +414,8 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       i4h: "Ядро продукта", i4p: "То, ради чего возвращаются, и помогает ли приложение это делать.",
       i5h: "Юнит-экономика", i5p: "Сколько стоит и приносит пользователь: сначала по бенчмаркам категории, потом по вашим реальным цифрам.",
       g1: "Анализ", g2: "Работа на запуске",
+      i11h: "Анализ результатов", i11p: "Что сработало, что нет и почему, по вашим реальным цифрам.",
+      i12h: "Прогнозы роста", i12p: "Новые прогнозы по результатам: как расти продукту, быть заметнее в интернете и привлекать пользователей эффективнее.",
       i7h: "Контент для приложения", i7p: "Посты, креативы и визуалы для магазина в вашем голосе.",
       i8h: "Локализация", i8p: "Приложение и контент на нужных вам языках.",
       i9h: "Публикация", i9p: "Постинг, расписание и обновление карточки в магазине.",
@@ -416,12 +424,16 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       why_l: "Почему я", why_h: "Почему человек, а не просто промпт",
       why_p: "ИИ даёт неплохой общий ответ. Я работаю с вашим реальным приложением и реальными цифрами, разговариваю с настоящими пользователями, принимаю решение и остаюсь на то, что будет после.",
       why_n: "Я пользуюсь ИИ каждый день, чтобы изучать большие объёмы информации, сравнивать данные и анализировать. Решения принимаю я, и обсуждаю их с вами.",
+      vs_a: "Промпт", vs_b: "Я",
+      vs1a: "Советы для среднего приложения", vs1b: "Ваши экраны, данные и пользователи",
+      vs2a: "Список из 30 идей", vs2b: "Приоритеты и причина для каждого",
+      vs3a: "Один ответ и тишина", vs3b: "Запуск, первые цифры, дальнейшие шаги",
       w1h: "Ваш продукт, а не шаблон", w1p: "Я работаю с вашими экранами, данными и пользователями.",
       w2h: "Решение, а не список", w2p: "Вы получаете приоритеты и причину для каждого.",
       w3h: "Доведение до результата", w3p: "Я рядом на запуске и на первых цифрах.",
       how_l: "Процесс", how_h: "Как проходит разбор",
       s1h: "Сравнение", s1p: "Я ставлю ваше приложение рядом с 5-10 конкурентами.",
-      s2h: "Поиск", s2p: "Нахожу, где пользователи уходят и что непонятно.",
+      s2h: "Исследование", s2p: "Исследую, где пользователи уходят и что непонятно.",
       s3h: "Решение", s3p: "Вы получаете 5-10 изменений по важности, у каждого своя причина.",
       s4h: "Измерение", s4p: "Метрики выбираем до запуска, чтобы результат был виден.",
       t1: "Онбординг", t2: "Пейволл", t3: "Иконка", t4: "Креативный бриф",
