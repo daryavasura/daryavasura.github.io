@@ -140,8 +140,9 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .offer p { color: var(--muted); font-size: 16px; }
 
 /* About + contact */
-.about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 80px); }
-.portrait { display: block; width: 100%; max-width: 380px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-top: 28px; border-radius: var(--r-lg); border: 1px solid var(--edge); }
+.about { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.portrait { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--edge); }
+.about-text { margin-top: 20px; }
 .about p + p { margin-top: 14px; }
 .about .muted { color: var(--muted); }
 .contact { background: var(--accent); color: var(--accent-ink); border-radius: var(--r-lg); padding: clamp(28px, 5vw, 64px); display: grid; gap: 20px; }
@@ -333,15 +334,15 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
 
   <section id="about">
     <div class="wrap about">
+      <img class="portrait" src="photo.jpg" width="1000" height="946" alt="Darya in the mountains" loading="lazy">
       <div>
         <p class="label" data-i18n="ab_l">About</p>
         <h2 style="margin-top:14px" data-i18n="ab_h">Hi, I'm Darya</h2>
-        <img class="portrait" src="photo.jpg" width="960" height="1200" alt="Darya in the mountains" loading="lazy">
-      </div>
-      <div>
+        <div class="about-text">
         <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing.</p>
         <p data-i18n="ab_p2">I like numbers and plain words, and I will tell you when something is not working.</p>
         <p class="muted" data-i18n="ab_p3">English and Russian, Ukrainian understood, Polish at A2.</p>
+        </div>
       </div>
     </div>
   </section>
