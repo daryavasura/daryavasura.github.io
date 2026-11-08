@@ -10,35 +10,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700&family=Onest:wght@400;500;600&display=swap">
 <style>
 /* Layout concept: one calm left-aligned column system, soft rounded surfaces, a funnel graphic as the single visual idea. No handwriting, no noise. */
+/* Warm sand and lagoon palette */
+:root{--bg:#EFDFC3; --surface:#FFF8EA; --ink:#1A1710; --muted:#4E4A3C; --line:#CBB88E; --accent:#087F86; --accent-ink:#FFFFFF; --tint:#C7E6DE; --tint-ink:#065359; --header:rgba(239,223,195,0.9);}
+@media (prefers-color-scheme: dark){
+ :root:not([data-theme="light"]){--bg:#18140D; --surface:#231D13; --ink:#F5EBD8; --muted:#BBAF96; --line:#3E3624; --accent:#62D0CF; --accent-ink:#052626; --tint:#17383A; --tint-ink:#AEEAE6; --header:rgba(24,20,13,0.9); color-scheme:dark;}
+}
+:root[data-theme="dark"]{--bg:#18140D; --surface:#231D13; --ink:#F5EBD8; --muted:#BBAF96; --line:#3E3624; --accent:#62D0CF; --accent-ink:#052626; --tint:#17383A; --tint-ink:#AEEAE6; --header:rgba(24,20,13,0.9); color-scheme:dark;}
 :root {
-  --bg: #F5F7F8;
-  --surface: #FFFFFF;
-  --ink: #12181B;
-  --muted: #56636A;
-  --line: #E1E7E9;
-  --accent: #0B7A6B;
-  --accent-ink: #FFFFFF;
-  --tint: #E3F2EF;
-  --tint-ink: #0B5C50;
-  --header: rgba(245, 247, 248, 0.86);
   --font-display: "Geologica", "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-body: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --r-lg: 28px;
   --r-md: 18px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0E1214; --surface: #151B1E; --ink: #EAF0F1; --muted: #9AA8AD; --line: #263034;
-    --accent: #46C9AE; --accent-ink: #06201A; --tint: #12302B; --tint-ink: #8FE3CE;
-    --header: rgba(14, 18, 20, 0.86);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0E1214; --surface: #151B1E; --ink: #EAF0F1; --muted: #9AA8AD; --line: #263034;
-  --accent: #46C9AE; --accent-ink: #06201A; --tint: #12302B; --tint-ink: #8FE3CE;
-  --header: rgba(14, 18, 20, 0.86);
-  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -94,13 +76,15 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 
 .funnel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); display: grid; gap: 10px; }
 .funnel .row { height: 46px; border-radius: 999px; background: var(--tint); color: var(--tint-ink); display: flex; align-items: center; padding-inline: 20px; font-size: 15px; font-weight: 600; min-width: 0; }
-.funnel .row.focus { background: var(--accent); color: var(--accent-ink); }
 .funnel .cap { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
 /* What I look at */
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
 .item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; min-width: 0; }
 .item h3 { font-size: 1.25rem; }
+.grp { font-size: 1rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.04em; color: var(--muted); margin-top: 40px; }
+.grp + .grid3 { margin-top: 16px; }
+.grid3.four { grid-template-columns: repeat(4, 1fr); }
 .item p { margin-top: 10px; color: var(--muted); font-size: 16px; }
 
 /* Why a person */
@@ -170,12 +154,12 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
 
 @media (max-width: 900px) {
   .hero-grid, .split, .demo, .about, .case { grid-template-columns: 1fr; }
-  .grid3, .offers { grid-template-columns: 1fr 1fr; }
+  .grid3, .grid3.four, .offers { grid-template-columns: 1fr 1fr; }
   nav a.link { display: none; }
 }
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  .grid3, .offers { grid-template-columns: 1fr; }
+  .grid3, .grid3.four, .offers { grid-template-columns: 1fr; }
   .rows div { grid-template-columns: 1fr; gap: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -220,11 +204,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
         </ul>
       </div>
       <div class="funnel" aria-label="Funnel">
-        <div class="row" style="width:100%" data-i18n="f1">Acquire</div>
-        <div class="row focus" style="width:82%" data-i18n="f2">Onboard</div>
-        <div class="row" style="width:66%" data-i18n="f3">Activate</div>
-        <div class="row focus" style="width:50%" data-i18n="f4">Pay</div>
-        <div class="row" style="width:38%" data-i18n="f5">Retain</div>
+        <div class="row" data-i18n="f1">Acquire</div>
+        <div class="row" data-i18n="f2">Onboard</div>
+        <div class="row" data-i18n="f3">Activate</div>
+        <div class="row" data-i18n="f4">Pay</div>
+        <div class="row" data-i18n="f5">Retain</div>
         <p class="cap" data-i18n="fcap">Where I look: every step between install and payment.</p>
       </div>
     </div>
@@ -234,6 +218,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
     <div class="wrap">
       <p class="label" data-i18n="look_l">What I work on</p>
       <h2 data-i18n="look_h">What I look at in your app</h2>
+      <h3 class="grp" data-i18n="g1">Analysis</h3>
       <div class="grid3">
         <div class="item"><h3 data-i18n="i1h">Competitors</h3><p data-i18n="i1p">5 to 10 apps in your category, side by side: what they ask, show and charge.</p></div>
         <div class="item"><h3 data-i18n="i2h">Onboarding</h3><p data-i18n="i2p">Every screen from first open to first value, and where people drop.</p></div>
@@ -241,6 +226,13 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
         <div class="item"><h3 data-i18n="i4h">Core product</h3><p data-i18n="i4p">The one thing people come back for, and whether the app makes it easy.</p></div>
         <div class="item"><h3 data-i18n="i5h">Unit economics</h3><p data-i18n="i5p">What a user costs and earns: category benchmarks first, your real numbers later.</p></div>
         <div class="item"><h3 data-i18n="i6h">After launch</h3><p data-i18n="i6p">Which channels to try at your stage, and what to measure next.</p></div>
+      </div>
+      <h3 class="grp" data-i18n="g2">Launch work</h3>
+      <div class="grid3 four">
+        <div class="item"><h3 data-i18n="i7h">Content for your app</h3><p data-i18n="i7p">Posts, creatives and store visuals in your voice.</p></div>
+        <div class="item"><h3 data-i18n="i8h">Localization</h3><p data-i18n="i8p">Your app and content adapted to the languages you need.</p></div>
+        <div class="item"><h3 data-i18n="i9h">Publishing</h3><p data-i18n="i9p">Posting, scheduling and store listing updates.</p></div>
+        <div class="item"><h3 data-i18n="i10h">Ad campaigns</h3><p data-i18n="i10p">Setting up and running paid campaigns, with a clear test budget.</p></div>
       </div>
     </div>
   </section>
@@ -297,11 +289,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       <p class="lead" style="margin-top:14px" data-i18n="work_p">Hypothesis, test, result. Where there is no result yet, it says so.</p>
       <div class="cases">
         <article class="case">
-          <div><h3 data-i18n="c1h">Map-data verification app</h3><p class="meta" data-i18n="c1m">Imaguru Startup Hub accelerator, 2026. Co-founder for marketing and product strategy.</p></div>
+          <div><h3 data-i18n="c1h">Explorio app</h3><p class="meta" data-i18n="c1m">Imaguru Startup Hub accelerator, 2026. Non-technical co-founder: strategy, product, marketing and customer research. Engineering by my co-founder.</p></div>
           <dl class="rows">
-            <div><dt data-i18n="l_hyp">Hypothesis</dt><dd data-i18n="c1a">People will verify map data for other people.</dd></div>
-            <div><dt data-i18n="l_test">Test</dt><dd data-i18n="c1b">About 20 customer interviews, competitor research, unit economics for B2C and B2B, and an MVP tested by 13 users.</dd></div>
-            <div class="res"><dt data-i18n="l_res">Result</dt><dd data-i18n="c1c">Users did not want to enter data for others, and we found no way to change that. We stopped the project.</dd></div>
+            <div><dt data-i18n="l_hyp">Hypothesis</dt><dd data-i18n="c1a">People need accurate local data that Google Maps cannot give. They will verify places themselves, so the map stays useful for them and for others.</dd></div>
+            <div><dt data-i18n="l_test">Test</dt><dd data-i18n="c1b">About 20 customer interviews, competitor research, unit economics, monetization forecasts, and an MVP tested by 13 users. The goal was not only many verifiers but returning ones: a place's green "freshly checked" status expired after a month, so people had to keep coming back.</dd></div>
+            <div class="res"><dt data-i18n="l_res">Result</dt><dd data-i18n="c1c">Users were not willing to keep verifying places for others, so the data could not stay fresh, and we found no way to change that. We stopped the project.</dd></div>
           </dl>
         </article>
         <article class="case">
@@ -313,11 +305,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
           </dl>
         </article>
         <article class="case">
-          <div><h3 data-i18n="c3h">Love Epil, beauty studios in 5 EU countries</h3><p class="meta" data-i18n="c3m">In-house marketer, 2024 to 2025.</p></div>
+          <div><h3 data-i18n="c3h">Love Epil, beauty studios in 5 EU countries</h3><p class="meta" data-i18n="c3m">In-house marketer, 2024 to 2025. I worked with ad specialists and creatives and did not buy ads myself.</p></div>
           <dl class="rows">
-            <div><dt data-i18n="l_before">Before</dt><dd data-i18n="c3a">Google Ads ran at about $1,000 a month before the new website.</dd></div>
-            <div><dt data-i18n="l_work">Work</dt><dd data-i18n="c3b">Built the website with a developer over 6 months, and set up lead tracking with sales labels.</dd></div>
-            <div class="res"><dt data-i18n="l_res">Result</dt><dd data-i18n="c3c">Cost per lead for one-off services fell from $24 to $18 on average (-25%), varying by month.</dd></div>
+            <div><dt data-i18n="l_before">Starting point</dt><dd data-i18n="c3a">Paid traffic went to weak landing pages, and the leads rarely became clients.</dd></div>
+            <div><dt data-i18n="l_work">Work</dt><dd data-i18n="c3b">Built the brand's multi-page website with a developer in 6 months, with CRM integrations and product descriptions. Coordinated the specialists running paid campaigns on Google Ads, Meta and TikTok, with a monthly budget that grew from roughly $12,000-13,000 to about $17,000 as new studios opened, split across studios, channels and campaigns. Set up lead labeling with the sales team, so we could see which campaigns led to bookings and adjust audiences. Opened the brand on a marketplace in 3 countries, 6 studios in total, from choosing the platform to content and accounts. Coordinated video makers, designers and localization across studios, prepared reports and strategies, and started SEO.</dd></div>
+            <div class="res"><dt data-i18n="l_res">Result</dt><dd class="pending" data-i18n="c3c">I left after the setup and have no figures I can stand behind, so I do not quote any.</dd></div>
           </dl>
         </article>
       </div>
@@ -345,7 +337,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
         <h2 style="margin-top:14px" data-i18n="ab_h">Hi, I'm Darya</h2>
       </div>
       <div>
-        <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing, and now work on apps at the early stage.</p>
+        <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing.</p>
         <p data-i18n="ab_p2">I like numbers and plain words, and I will tell you when something is not working.</p>
         <p class="muted" data-i18n="ab_p3">English and Russian, Ukrainian understood, Polish at A2.</p>
       </div>
@@ -388,6 +380,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       i3h: "Paywall", i3p: "Что в нём написано, когда он появляется и понятна ли цена.",
       i4h: "Ядро продукта", i4p: "То, ради чего возвращаются, и помогает ли приложение это делать.",
       i5h: "Юнит-экономика", i5p: "Сколько стоит и приносит пользователь: сначала по бенчмаркам категории, потом по вашим реальным цифрам.",
+      g1: "Анализ", g2: "Работа на запуске",
+      i7h: "Контент для приложения", i7p: "Посты, креативы и визуалы для магазина в вашем голосе.",
+      i8h: "Локализация", i8p: "Приложение и контент на нужных вам языках.",
+      i9h: "Публикация", i9p: "Постинг, расписание и обновление карточки в магазине.",
+      i10h: "Рекламные кампании", i10p: "Запуск и ведение платной рекламы с понятным тестовым бюджетом.",
       i6h: "После запуска", i6p: "Какие каналы пробовать на вашей стадии и что измерять дальше.",
       why_l: "Почему я", why_h: "Почему человек, а не просто промпт",
       why_p: "ИИ даёт неплохой общий ответ. Я работаю с вашим реальным приложением и реальными цифрами, разговариваю с настоящими пользователями, принимаю решение и остаюсь на то, что будет после.",
@@ -405,19 +402,19 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       ph_tag: "Заглушка",
       work_l: "Работы", work_h: "Что сделано",
       work_p: "Гипотеза, проверка, результат. Если результата пока нет, так и написано.",
-      c1h: "Приложение для проверки данных на картах", c1m: "Акселератор Imaguru Startup Hub, 2026. Сооснователь по маркетингу и продуктовой стратегии.",
-      l_hyp: "Гипотеза", l_test: "Проверка", l_res: "Результат", l_before: "Было", l_work: "Что сделала",
-      c1a: "Люди будут проверять данные на картах для других людей.",
-      c1b: "Около 20 интервью с клиентами, анализ конкурентов, юнит-экономика для B2C и B2B и MVP, который проверили 13 пользователей.",
-      c1c: "Пользователи не хотели вносить данные для других, и способа это изменить мы не нашли. Мы остановили проект.",
+      c1h: "Приложение Explorio", c1m: "Акселератор Imaguru Startup Hub, 2026. Нетехнический сооснователь: стратегия, продукт, маркетинг и исследование клиентов. Разработка на сооснователе.",
+      l_hyp: "Гипотеза", l_test: "Проверка", l_res: "Результат", l_before: "Исходная точка", l_work: "Что сделала",
+      c1a: "Людям нужны точные локальные данные, которые не даёт Google Maps. Они будут сами проверять места, чтобы карта была полезна им и другим.",
+      c1b: "Около 20 интервью с клиентами, анализ конкурентов, юнит-экономика, прогнозы монетизации и MVP, который проверили 13 пользователей. Цель была не только в количестве проверяющих, а в том, чтобы они возвращались: зелёный статус «свежей проверки» устаревал через месяц, и людям нужно было приходить снова.",
+      c1c: "Пользователи не были готовы постоянно проверять места для других, поэтому данные не оставались свежими, и способа это изменить мы не нашли. Мы остановили проект.",
       c2h: "Приложение с подпиской, название скрыто", c2m: "Пилотный проект. Маркетинговая стратегия и обратная связь по продукту.",
       c2a: "Понятный онбординг и прозрачный paywall превратят больше новых пользователей в платящих.",
       c2b: "Сравнила онбординг, paywall и ядро продукта конкурентов и дала основателю обратную связь по приложению.",
       c2c: "Пока неизвестно. Измерим после запуска обновлённой версии, цифры появятся здесь.",
-      c3h: "Love Epil, студии красоты в 5 странах ЕС", c3m: "Маркетолог в компании, 2024-2025.",
-      c3a: "До нового сайта Google Ads шла примерно на $1000 в месяц.",
-      c3b: "Собрала сайт вместе с разработчиком за 6 месяцев и настроила учёт лидов с метками от продаж.",
-      c3c: "Стоимость лида на разовые услуги упала с $24 до $18 в среднем (-25%), по месяцам она менялась.",
+      c3h: "Love Epil, студии красоты в 5 странах ЕС", c3m: "Маркетолог в компании, 2024-2025. Я работала со специалистами по рекламе и креаторами, сама рекламу не закупала.",
+      c3a: "Платный трафик шёл на слабые лендинги, а лиды редко становились клиентами.",
+      c3b: "Собрала многостраничный сайт бренда вместе с разработчиком за 6 месяцев, с CRM-интеграциями и описаниями продуктов. Координировала специалистов, которые вели платные кампании в Google Ads, Meta и TikTok: месячный бюджет вырос примерно с $12 000-13 000 до около $17 000 по мере открытия новых студий и распределялся по студиям, каналам и кампаниям. Настроила разметку лидов вместе с отделом продаж, чтобы видеть, какие кампании приводят к записям, и корректировать аудитории. Вывела бренд на маркетплейс в 3 странах, 6 студий, от выбора платформы до контента и аккаунтов. Координировала видеографов, дизайнеров и локализацию по студиям, готовила отчёты и стратегии и начала SEO.",
+      c3c: "Я ушла после настройки, и цифр, за которые могу ручаться, у меня нет, поэтому я их не называю.",
       agency: "До этого 8+ лет в агентствах: IKEA, JTI, Playtika, International Swimming League и другие.",
       off_l: "С чего начать", off_h: "Три способа начать",
       off_p: "Фиксированная цена, согласованная до начала работы.",
@@ -428,7 +425,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       o3w: "На проверке", o3h: "Система контента",
       o3p: "Конвейер из агентов и сервисов, который готовит посты и креативы в вашем голосе. Качество проверяю я, публикуете вы. Проверяю на собственном пилоте.",
       ab_l: "Обо мне", ab_h: "Привет, я Дарья",
-      ab_p1: "Я живу в Варшаве. Больше 8 лет работала в агентствах, вела проекты от брифа до сдачи для международных брендов, потом ушла в маркетинг внутри компании, а сейчас занимаюсь приложениями на ранней стадии.",
+      ab_p1: "Я живу в Варшаве. Больше 8 лет работала в агентствах, вела проекты от брифа до сдачи для международных брендов, потом ушла в маркетинг внутри компании.",
       ab_p2: "Я люблю цифры и простые слова, и скажу прямо, если что-то не работает.",
       ab_p3: "Русский и английский, украинский понимаю, польский на уровне A2.",
       ct_h: "Отправьте мне приложение",
