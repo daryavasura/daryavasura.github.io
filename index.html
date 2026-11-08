@@ -140,7 +140,7 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 .offer p { color: var(--muted); font-size: 16px; }
 
 /* About + contact */
-.about { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .portrait { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--edge); }
 .about-text { margin-top: 20px; }
 .about p + p { margin-top: 14px; }
@@ -155,14 +155,20 @@ nav a.link:hover { color: var(--ink); background: var(--tint); }
 footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
 
 @media (max-width: 900px) {
-  .hero-grid, .split, .demo, .about, .case { grid-template-columns: 1fr; }
+  .hero-grid, .split, .demo, .case { grid-template-columns: 1fr; }
   .grid3, .grid3.four, .offers { grid-template-columns: 1fr 1fr; }
   nav a.link { display: none; }
 }
 @media (max-width: 600px) {
+  .about { gap: 18px; }
+  .about h2 { font-size: 1.5rem; }
+  .about-text { font-size: 15px; margin-top: 12px; }
   body { font-size: 16px; }
   .grid3, .grid3.four, .offers { grid-template-columns: 1fr; }
   .rows div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 420px) {
+  .about { grid-template-columns: 1fr 1fr; align-items: start; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
