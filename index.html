@@ -351,12 +351,11 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
     <div class="wrap about">
       <img class="portrait" src="photo.jpg" width="1000" height="946" alt="Darya in the mountains" loading="lazy">
       <div>
-        <p class="label" data-i18n="ab_l">About</p>
-        <h2 style="margin-top:14px" data-i18n="ab_h">Hi, I'm Darya</h2>
+        <h2 data-i18n="ab_h">Hi, I'm Darya</h2>
         <div class="about-text">
         <p data-i18n="ab_p1">I live in Warsaw. I spent 8+ years on the agency side, running projects from brief to delivery for international brands, then moved in-house to marketing.</p>
         <p data-i18n="ab_p2">I like numbers and plain words, and I will tell you when something is not working.</p>
-        <p class="muted" data-i18n="ab_p3">English and Russian, Ukrainian understood, Polish at A2.</p>
+        <p class="muted" data-i18n="ab_p3">I work in English and Russian.</p>
         </div>
       </div>
     </div>
@@ -366,9 +365,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
     <div class="wrap">
       <div class="contact">
         <h2 data-i18n="ct_h">Send me your app</h2>
-        <p data-i18n="ct_p">Message me on LinkedIn with a link to the app, what worries you about it, and your numbers if you have them. I will reply with what I would look at first.</p>
-        <a class="btn" href="https://www.linkedin.com/in/darya-vasiura-478671194/" target="_blank" rel="noopener" data-i18n="ct_b">Message on LinkedIn</a>
-        <div class="url"><code id="li-url">https://www.linkedin.com/in/darya-vasiura-478671194/</code><button class="copy" type="button" id="copy-btn" data-i18n="ct_c">Copy link</button></div>
+        <a class="btn" href="https://www.linkedin.com/in/darya-vasiura-478671194/" target="_blank" rel="noopener" data-i18n="ct_b">Message me on LinkedIn</a>
       </div>
     </div>
   </section>
@@ -459,10 +456,10 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       ab_l: "Обо мне", ab_h: "Привет, я Дарья",
       ab_p1: "Я живу в Варшаве. Больше 8 лет работала в агентствах, вела проекты от брифа до сдачи для международных брендов, потом ушла в маркетинг внутри компании.",
       ab_p2: "Я люблю цифры и простые слова, и скажу прямо, если что-то не работает.",
-      ab_p3: "Русский и английский, украинский понимаю, польский на уровне A2.",
+      ab_p3: "Рабочие языки: английский и русский.",
       ct_h: "Отправьте мне приложение",
       ct_p: "Напишите мне в LinkedIn: ссылку на приложение, что вас в нём беспокоит и ваши цифры, если они есть. Я отвечу, с чего бы я начала.",
-      ct_b: "Написать в LinkedIn", ct_c: "Скопировать ссылку",
+      ct_b: "Написать мне в LinkedIn", ct_c: "Скопировать ссылку",
       foot: "Варшава, Польша"
     }
   };
@@ -512,22 +509,6 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 14px; }
       tabs.forEach(function (x) { x.setAttribute("aria-selected", String(x === t)); });
       panels.forEach(function (p) { p.hidden = p.getAttribute("data-p") !== i; });
     });
-  });
-
-  var btn = document.getElementById("copy-btn");
-  btn.addEventListener("click", function () {
-    var url = document.getElementById("li-url");
-    function sel() {
-      var r = document.createRange(); r.selectNodeContents(url);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    }
-    var done = lang === "ru" ? "Скопировано" : "Copied";
-    var orig = T[lang].ct_c;
-    try {
-      navigator.clipboard.writeText(url.textContent).then(function () {
-        btn.textContent = done; setTimeout(function () { btn.textContent = T[lang].ct_c; }, 1600);
-      }, sel);
-    } catch (e) { sel(); }
   });
 })();
 </script>
